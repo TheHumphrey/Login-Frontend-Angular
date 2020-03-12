@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { apiURL } from "../../../environments/environment";
-import { FormGroup, Validators, FormGroupDirective, FormControl, NgForm } from '@angular/forms';
-import { empty } from 'rxjs';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective, FormControl, NgForm } from '@angular/forms';
+import { empty, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -14,11 +14,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
 
   public form: FormGroup;
@@ -35,8 +38,9 @@ export class LoginComponent implements OnInit {
     Validators.maxLength(40)
   ])
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+    this.form = this.fb.group({
+    })
   }
 
 
