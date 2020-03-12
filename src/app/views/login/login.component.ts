@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective, FormControl, Ng
 import { empty, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { DIR_DOCUMENT_FACTORY } from '@angular/cdk/bidi/dir-document-token';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -59,5 +60,15 @@ export class LoginComponent implements OnInit {
         }))
         .subscribe(res => console.log(res));
     }
+  }
+}
+
+export function background(bool){
+  if(bool == true){
+    document.getElementById("link").className = "lightLink";
+    document.getElementById("borda").className = "bordaLight";
+  } else {
+    document.getElementById("link").className = "link";
+    document.getElementById("borda").className = "borda";
   }
 }

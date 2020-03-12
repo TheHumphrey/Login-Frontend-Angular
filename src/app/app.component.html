@@ -1,3 +1,7 @@
-<div class="app">
+<nav class="navDark" id="nav">
+    <button mat-button (click)="alternate(false)" class="themaDark">Escuro</button>
+    <button mat-button (click)="alternate(true)" class="themaLight">Claro</button>
+</nav>
+<div class="app" id="app">
     <router-outlet></router-outlet>
 </div>

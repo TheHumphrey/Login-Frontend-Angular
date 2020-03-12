@@ -59,7 +59,7 @@ export class CadastroComponent implements OnInit {
     const data = this.dataFormControl.value;
     const password = this.passwordFormControl.value;
 
-    if (email && nome && data && password.length >= 8) {
+    if (!this.emailFormControl.hasError('email') && nome && data && password.length >= 8) {
       this.http.post(`${apiURL}/usuario`, { email: email, nome: nome, dataNascimento: data, senha: password }, { observe: "response" })
         .pipe(catchError(err => {
           return empty();
