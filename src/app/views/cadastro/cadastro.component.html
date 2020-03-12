@@ -1,1 +1,45 @@
-<p>cadastro works!</p>
+<div class="borda">
+    <form [formGroup]="form" (ngSubmit)="cadastrar()">
+        <mat-form-field class="example-full-width">
+            <mat-label class="anim">Email</mat-label>
+            <input class="input" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Digite um Email Valido!
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email é <strong>Obrigatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label class="anim">Nome</mat-label>
+            <input class="input" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
+                placeholder="Seu nome">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                Email é <strong>Obrigatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label class="anim">Data Nascimento</mat-label>
+            <input class="input" type="date" matInput [formControl]="dataFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. 11/07/1999">
+            <mat-error *ngIf="dataFormControl.hasError('required')">
+                Data de Nascimento é <strong>Obrigatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label class="anim">Senha</mat-label>
+            <input type="password" class="input" matInput [formControl]="passwordFormControl"
+                [errorStateMatcher]="matcher">
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Senha é <strong>Obrigatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">Enviar</button>
+    </form>
+    <a>Login</a>
+</div>
