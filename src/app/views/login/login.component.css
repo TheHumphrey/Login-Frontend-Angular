@@ -1,0 +1,48 @@
+/* Div */
+
+.borda {
+    width: 250px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Elementos */
+
+form {
+    display: grid;
+}
+
+.input {
+    height: 39.06px;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.valido {
+    color: rgb(63, 241, 63);
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    width: 90px;
+    font-weight: bolder;
+    transition: 0.5s;
+    padding-top: 5px;
+}
+
+a:hover {
+    cursor: pointer;
+    color: rgb(112, 11, 138);
+    transition: 0.5s;
+}
+
+label {
+    font-weight: bolder;
+}
