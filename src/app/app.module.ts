@@ -11,12 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthLoginService } from './services/auth/auth-login.service';
+import { AuthGuardService } from './services/guards/auth.guard.service';
+import { PanelComponent } from './views/panel/panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [AuthLoginService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

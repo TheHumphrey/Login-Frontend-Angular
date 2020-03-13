@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-import { apiURL } from "../../../environments/environment";
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, FormControl, NgForm } from '@angular/forms';
-import { empty, Subject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { DIR_DOCUMENT_FACTORY } from '@angular/cdk/bidi/dir-document-token';
+import { LoginModel } from 'src/app/models/login/login-model';
+import { AuthLoginService } from 'src/app/services/auth/auth-login.service';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -25,6 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
 
+  public usuario: LoginModel = {username: '', password: ''};
   public form: FormGroup;
 
   matcher = new MyErrorStateMatcher();
@@ -39,32 +38,25 @@ export class LoginComponent implements OnInit {
     Validators.maxLength(40)
   ])
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: AuthLoginService) {
     this.form = this.fb.group({
     })
   }
 
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   login() {
-    const email = this.emailFormControl.value;
-    const password = this.passwordFormControl.value;
+    this.auth.authLogin(this.usuario.username, this.usuario.password);
+  }
 
-    if (email && password.length >= 8) {
-      this.http.post(`${apiURL}/auth`, { username: email, password: password }, { observe: "response" })
-        .pipe(catchError(err => {
-          return empty();
-        }))
-        .subscribe(res => console.log(res));
-    }
+  getUser(){
+    return this.usuario.username;
   }
 }
 
-export function background(bool){
-  if(bool == true){
+export function background(bool) {
+  if (bool == true) {
     document.getElementById("link").className = "lightLink";
     document.getElementById("borda").className = "bordaLight";
   } else {
