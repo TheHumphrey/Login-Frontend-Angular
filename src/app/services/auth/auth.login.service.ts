@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AuthLoginService {
 
   private online = false;
+  private permission = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,17 +23,22 @@ export class AuthLoginService {
           return empty();
         }))
         .subscribe(res => {
-          this.onLogin();
+          this.onLogin(res.body);
           this.router.navigate(['welcome', email])
         });
     }
   }
 
-  onLogin(){
+  onLogin(params){
     this.online = true;
+    this.permission = params;
   }
 
   getOnLogin(){
     return this.online;
+  }
+
+  getOnPermission(){
+    return this.permission;
   }
 }

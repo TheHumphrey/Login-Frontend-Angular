@@ -2,7 +2,7 @@
     <form [formGroup]="form" (ngSubmit)="cadastrar()">
         <mat-form-field class="example-full-width">
             <mat-label class="anim">Email</mat-label>
-            <input class="input" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            <input [(ngModel)]="newUser.email" class="input" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                 placeholder="Ex. pat@example.com">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Digite um Email Valido!
@@ -14,7 +14,7 @@
 
         <mat-form-field class="example-full-width">
             <mat-label class="anim">Nome</mat-label>
-            <input class="input" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
+            <input [(ngModel)]="newUser.name" class="input" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
                 placeholder="Seu nome">
             <mat-error *ngIf="nameFormControl.hasError('required')">
                 Email é <strong>Obrigatorio</strong>
@@ -23,7 +23,7 @@
 
         <mat-form-field class="example-full-width">
             <mat-label class="anim">Data Nascimento</mat-label>
-            <input class="input" type="date" matInput [formControl]="dataFormControl" [errorStateMatcher]="matcher"
+            <input [(ngModel)]="newUser.data" class="input" type="date" matInput [formControl]="dataFormControl" [errorStateMatcher]="matcher"
                 placeholder="Ex. 11/07/1999">
             <mat-error *ngIf="dataFormControl.hasError('required')">
                 Data de Nascimento é <strong>Obrigatorio</strong>
@@ -32,7 +32,7 @@
 
         <mat-form-field class="example-full-width">
             <mat-label class="anim">Senha</mat-label>
-            <input type="password" class="input" matInput [formControl]="passwordFormControl"
+            <input [(ngModel)]="newUser.password" type="password" class="input" matInput [formControl]="passwordFormControl"
                 [errorStateMatcher]="matcher">
             <mat-error *ngIf="passwordFormControl.hasError('required')">
                 Senha é <strong>Obrigatorio</strong>

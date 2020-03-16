@@ -11,16 +11,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthLoginService } from './services/auth/auth-login.service';
+import { AuthLoginService } from './services/auth/auth.login.service';
 import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
+import { AutorizadoComponent } from './views/autorizado/autorizado.component';
+import { NaoAutorizadoComponent } from './views/nao-autorizado/nao-autorizado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    PanelComponent
+    PanelComponent,
+    AutorizadoComponent,
+    NaoAutorizadoComponent
   ],
   imports: [
     BrowserModule,

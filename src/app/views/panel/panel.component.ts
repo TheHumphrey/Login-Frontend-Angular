@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthLoginService } from 'src/app/services/auth/auth-login.service';
-import { ActivatedRoute } from '@angular/router';
+import { AuthLoginService } from 'src/app/services/auth/auth.login.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -11,10 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PanelComponent implements OnInit {
   username: string;
-  constructor(private router: ActivatedRoute) {
-    this.username = this.router.snapshot.params['name'];
+  constructor(private params: ActivatedRoute, private router: Router) {
+    this.username = this.params.snapshot.params['name'];
    }
+
   ngOnInit(): void {
+  }
+
+  nextPage(){
+    this.router.navigate(['autorizado'])
   }
 
 }

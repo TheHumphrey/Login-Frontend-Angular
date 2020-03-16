@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { apiURL } from 'src/environments/environment';
-import { catchError } from 'rxjs/operators';
-import { empty } from 'rxjs';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { CreateAccount } from 'src/app/services/create/create.service';
+import { ICadastro } from 'src/app/models/cadastro/cadastro.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,9 +19,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class CadastroComponent implements OnInit {
 
+  public newUser: ICadastro = { email: '', name: '', data: '', password: '', adm: false };
+  public form: FormGroup;
+
   matcher = new MyErrorStateMatcher();
 
-  public form: FormGroup;
+  
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -41,7 +43,7 @@ export class CadastroComponent implements OnInit {
     Validators.maxLength(40)
   ])
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: FormBuilder, private cadastro: CreateAccount) {
     this.form = this.fb.group({
       email: ['', Validators.requiredTrue],
       nome: ['', Validators.requiredTrue],
@@ -54,17 +56,8 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    const email = this.emailFormControl.value;
-    const nome = this.nameFormControl.value;
-    const data = this.dataFormControl.value;
-    const password = this.passwordFormControl.value;
-
-    if (!this.emailFormControl.hasError('email') && nome && data && password.length >= 8) {
-      this.http.post(`${apiURL}/usuario`, { email: email, nome: nome, dataNascimento: data, senha: password }, { observe: "response" })
-        .pipe(catchError(err => {
-          return empty();
-        }))
-        .subscribe(res => console.log(res))
+    if (!this.emailFormControl.hasError('email') && this.newUser.password.length >= 8) {
+      this.cadastro.create(this.newUser.email, this.newUser.name, this.newUser.data, this.newUser.password, this.newUser.adm);
     }
   }
 }

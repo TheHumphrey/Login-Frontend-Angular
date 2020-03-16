@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, FormControl, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { LoginModel } from 'src/app/models/login/login-model';
-import { AuthLoginService } from 'src/app/services/auth/auth-login.service';
-import { Router } from '@angular/router';
+import { ILoginModel } from 'src/app/models/login/login.model';
+import { AuthLoginService } from 'src/app/services/auth/auth.login.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +22,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
 
-  public usuario: LoginModel = {username: '', password: ''};
+  public usuario: ILoginModel = {username: '', password: ''};
   public form: FormGroup;
 
   matcher = new MyErrorStateMatcher();

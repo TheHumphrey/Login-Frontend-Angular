@@ -1,0 +1,21 @@
+div {
+    background: rgba(0, 0, 0, .5);
+    height: 100px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dark {
+    color: rgb(29, 202, 29);
+    transition: 0.5s;
+    margin: 0;
+}
+
+.light {
+    color: rgb(38, 245, 38);
+    transition: 0.5s;
+    margin: 0;
+}
