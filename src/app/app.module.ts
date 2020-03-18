@@ -14,8 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthLoginService } from './services/auth/auth.login.service';
 import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
-import { AutorizadoComponent } from './views/autorizado/autorizado.component';
-import { NaoAutorizadoComponent } from './views/nao-autorizado/nao-autorizado.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { NaoAutorizadoComponent } from './views/nao-autorizado/nao-autorizado.co
     LoginComponent,
     CadastroComponent,
     PanelComponent,
-    AutorizadoComponent,
-    NaoAutorizadoComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,8 @@ import { LoginComponent } from './views/login/login.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
-import { AutorizadoComponent } from './views/autorizado/autorizado.component';
 import { PermissionGuardService } from './services/guards/permission.guard.service';
-import { NaoAutorizadoComponent } from './views/nao-autorizado/nao-autorizado.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -20,18 +19,13 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
-    path: 'welcome/:name',
+    path: 'home/:name',
     component: PanelComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'autorizado',
-    component: AutorizadoComponent,
-    canActivate: [PermissionGuardService]
-  },
-  {
-    path: 'naoautorizado',
-    component: NaoAutorizadoComponent
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 

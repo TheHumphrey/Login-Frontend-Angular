@@ -5,6 +5,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { ILoginModel } from 'src/app/models/login/login.model';
 import { AuthLoginService } from 'src/app/services/auth/auth.login.service';
 
+
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -22,7 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
 
-  public usuario: ILoginModel = {username: '', password: ''};
+  public usuario: ILoginModel = { username: '', password: '' };
   public form: FormGroup;
 
   matcher = new MyErrorStateMatcher();
@@ -43,13 +45,14 @@ export class LoginComponent implements OnInit {
   }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   login() {
     this.auth.authLogin(this.usuario.username, this.usuario.password);
   }
 
-  getUser(){
+  getUser() {
     return this.usuario.username;
   }
 }

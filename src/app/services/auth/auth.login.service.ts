@@ -13,6 +13,7 @@ export class AuthLoginService {
 
   private online = false;
   private permission = false;
+  private user = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -24,7 +25,8 @@ export class AuthLoginService {
         }))
         .subscribe(res => {
           this.onLogin(res.body);
-          this.router.navigate(['welcome', email])
+          this.user = email;
+          this.router.navigate(['home', email])
         });
     }
   }
@@ -40,5 +42,9 @@ export class AuthLoginService {
 
   getOnPermission(){
     return this.permission;
+  }
+
+  getUser(){
+    return this.user;
   }
 }

@@ -19,7 +19,7 @@ export class PanelComponent implements OnInit {
   }
 
   nextPage(){
-    this.router.navigate(['autorizado'])
+    this.router.navigate(['dashboard'])
   }
 
 }

@@ -17,7 +17,7 @@ export class PermissionGuardService implements CanActivate {
     if (this.state.getOnPermission()) {
       return true;
     }
-    this.router.navigate(['naoautorizado']);
+    this.router.navigate(['']);
 
     return false;
   }
