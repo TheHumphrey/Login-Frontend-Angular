@@ -16,6 +16,10 @@ export class DashboardService {
     return this.http.get<IDashboard>(`${apiURL}/dashboard`, { observe: "response" })
   }
 
+  updateData(user: IDashboard){
+    return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user);
+  }
+
   loadOptions() {
     var options = {
       title: 'Status das entregas',

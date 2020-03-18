@@ -22,7 +22,9 @@ export class OperacaoComponent implements OnInit {
   }
 
   entregue(){
-    
+    this.data.entregues++
+    this.data.andamento--
+    this.dash.updateData(this.data);
   }
 
 
