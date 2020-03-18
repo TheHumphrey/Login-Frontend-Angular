@@ -13,18 +13,7 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   loadData() {
-    return this.http.get<IDashboard>(`${apiURL}/dashboard/teste@gmail.com`, { observe: "response" })
-  }
-
-  dataFull(res, google){
-    var data = google.visualization.arrayToDataTable([
-      ['Status', 'Quantidade'],
-      ['Entregue', res.entregues],
-      ['Andamento', res.andamento],
-      ['Não entregues', res.naoEntregues]
-    ]);
-
-    return data;
+    return this.http.get<IDashboard>(`${apiURL}/dashboard`, { observe: "response" })
   }
 
   loadOptions() {
@@ -38,7 +27,8 @@ export class DashboardService {
       backgroundColor: 'transparent',
       colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
       legend: { textStyle: { color: 'white', fontSize: 14, bold: true } },
-      is3D: true
+      is3D: true,
+      width: 440
     };
 
     return options;

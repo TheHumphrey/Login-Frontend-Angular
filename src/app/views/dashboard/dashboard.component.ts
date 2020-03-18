@@ -13,7 +13,6 @@ declare var google: any;
 export class DashboardComponent implements OnInit {
 
   private data: IDashboard = {email: "", entregues: 1, andamento: 1, naoEntregues: 1};
-  private datagoogle;
 
   constructor(private dash: DashboardService) { }
 
@@ -28,15 +27,14 @@ export class DashboardComponent implements OnInit {
   }
 
   loadDrawn(){
-    this.datagoogle = google.visualization.arrayToDataTable([
+    var dataGoogle = google.visualization.arrayToDataTable([
       ['Status', 'Quantidade'],
       ['Entregue', this.data.entregues],
       ['Andamento', this.data.andamento],
       ['Não entregues', this.data.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('teste'));
-    chart.draw(this.datagoogle, this.dash.loadOptions());
+    chart.draw(dataGoogle, this.dash.loadOptions());
     console.log(this.data)
   }
-
 }

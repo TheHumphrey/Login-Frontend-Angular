@@ -7,11 +7,12 @@ import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
 import { PermissionGuardService } from './services/guards/permission.guard.service';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { OperacaoComponent } from './views/operacao/operacao.component';
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'operacao',
     component: LoginComponent
   },
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: '',
+    component: OperacaoComponent
   }
 ];
 

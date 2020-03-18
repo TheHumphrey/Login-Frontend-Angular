@@ -15,6 +15,7 @@ import { AuthLoginService } from './services/auth/auth.login.service';
 import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { OperacaoComponent } from './views/operacao/operacao.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     CadastroComponent,
     PanelComponent,
     DashboardComponent,
+    OperacaoComponent,
   ],
   imports: [
     BrowserModule,

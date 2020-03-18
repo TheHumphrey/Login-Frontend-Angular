@@ -1,0 +1,33 @@
+.borda {
+    width: 250px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.button1{
+    margin-right: 5px;
+}
+
+.entregue{
+    color: rgb(26, 241, 26);
+    font-size:16px;
+    font-weight: bolder;
+}
+
+.andamento{
+    color: rgb(239, 243, 22);
+    font-size:16px;
+    font-weight: bolder;
+}
+
+.naoEntregue{
+    color: rgb(250, 10, 10);
+    font-size:16px;
+    font-weight: bolder;
+}
