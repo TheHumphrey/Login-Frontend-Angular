@@ -1,5 +1,6 @@
+/* Divs */
 
-.container{
+.container {
     height: 100%;
     background-color: transparent;
     display: flex;
@@ -22,7 +23,7 @@
     right: 0px;
     height: 100%;
     width: 40%;
-    border-left: solid  rgba(0,0,0,0.11);
+    border-left: solid rgba(0, 0, 0, 0.11);
     justify-self: end;
     flex-direction: column;
 }
@@ -34,7 +35,7 @@
     height: 50%;
     width: 60%;
     background-color: transparent;
-    border-bottom: solid  rgba(0,0,0,0.11);
+    border-bottom: solid rgba(0, 0, 0, 0.11);
     justify-self: end;
     flex-direction: column;
 }
@@ -57,8 +58,10 @@
     height: 50%;
     width: 30%;
     background-color: rgba(12, 46, 240, 0.781);
-    border-bottom: solid  rgba(0,0,0,0.11);
-    justify-self: end;
+    border-bottom: solid rgba(0, 0, 0, 0.11);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -69,7 +72,9 @@
     height: 46.1%;
     width: 30%;
     background-color: rgba(12, 46, 240, 0.781);
-    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -80,8 +85,8 @@
     height: 24%;
     width: 41.9%;
     background-color: rgba(12, 46, 240, 0.671);
-    border-bottom: solid  rgba(0,0,0,0.11);
-    border-right: solid  rgba(0,0,0,0.11);
+    border-bottom: solid rgba(0, 0, 0, 0.11);
+    border-right: solid rgba(0, 0, 0, 0.11);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,10 +99,11 @@
     height: 22.1%;
     width: 41.9%;
     background-color: rgba(12, 46, 240, 0.671);
-    border-right: solid  rgba(0,0,0,0.11);
-    border-right: solid  rgba(0,0,0,0.11);
-    justify-self: end;
-    flex-direction: column;
+    border-right: solid rgba(0, 0, 0, 0.11);
+    border-right: solid rgba(0, 0, 0, 0.11);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .frota {
@@ -107,18 +113,25 @@
     height: 46.1%;
     width: 28.1%;
     background-color: rgba(12, 46, 240, 0.671);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+/* Elementos - Label */
+
 .label {
-    display: block;
-    height: 65px;
+    height: 50px;
     width: 155px;
     border-left: 4px solid rgba(42, 247, 1, 0.774);
     font-size: 25px;
     margin-left: 10px;
     padding-left: 10px;
+    padding-top: 15px;
     color: #fff;
 }
+
 .label2 {
     border-left: 4px solid rgba(42, 247, 1, 0.774);
     font-size: 20px;
@@ -129,6 +142,7 @@
     padding-left: 10px;
     color: #fff;
 }
+
 .labeloff {
     border-left: 4px solid rgba(42, 247, 1, 0.774);
     font-size: 20px;
@@ -140,7 +154,96 @@
     color: #fff;
 }
 
-.textDay{
+.labelLucro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelLucroOff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelTempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelTempoOff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelFrota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelFrotaOff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+/* Elementos - Text */
+
+.textKm {
     display: flex;
     align-items: flex-end;
     padding-top: 5px;
@@ -148,3 +251,21 @@
     font-size: 30px;
 }
 
+.textCusto {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 5px;
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(61, 245, 24, 0.966);
+}
+
+.textLucro {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(61, 245, 24, 0.966);
+}
