@@ -1,5 +1,13 @@
 /* Div */
 
+.container {
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .borda {
     width: 250px;
     height: 230px;
@@ -12,7 +20,7 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.bordaLight{
+.bordaLight {
     width: 250px;
     height: 230px;
     display: flex;
@@ -50,7 +58,7 @@ form {
     padding-top: 5px;
 }
 
-.lightLink{
+.lightLink {
     color: #000;
     text-decoration: none;
     width: 90px;

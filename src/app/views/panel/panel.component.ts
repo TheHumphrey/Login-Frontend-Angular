@@ -22,4 +22,8 @@ export class PanelComponent implements OnInit {
     this.router.navigate(['dashboard'])
   }
 
+  nextPageOperacao(){
+    this.router.navigate(['operacao'])
+  }
+
 }

@@ -1,4 +1,12 @@
-div {
+.container{
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.borda {
     background: rgba(0, 0, 0, .5);
     height: 150px;
     width: 380px;

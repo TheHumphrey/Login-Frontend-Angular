@@ -1,9 +1,11 @@
-<div class="borda">
-  <span class="entregue">Entregues: {{data.entregues}}</span>
-  <span class="andamento">Andamento: {{data.andamento}}</span>
-  <span class="naoEntregue">Não Entregues: {{data.naoEntregues}}</span>
-  <form class="example-form" [formGroup]="form">
-    <!-- <mat-form-field>
+<div class="container">
+  <div class="borda">
+    <button mat-raised-button color="accent" (click)="nextPage()">Dashboard</button>
+    <span class="entregue">Entregues: {{data.entregues}}</span>
+    <span class="andamento">Andamento: {{data.andamento}}</span>
+    <span class="naoEntregue">Não Entregues: {{data.naoEntregues}}</span>
+    <form class="example-form" [formGroup]="form">
+      <!-- <mat-form-field>
           <mat-label>Favorite food</mat-label>
           <input matInput placeholder="Ex. Pizza">
         </mat-form-field> -->
@@ -11,7 +13,8 @@
 
 
 
-    <button mat-raised-button color="accent" class="button1" (click)="entregue()">Entregue</button>
-    <button mat-raised-button color="warn" (click)="naoEntregue()">Falha ao Entregar</button>
-  </form>
+      <button mat-raised-button color="accent" class="button1" (click)="entregue()">Entregue</button>
+      <button mat-raised-button color="warn" (click)="naoEntregue()">Falha ao Entregar</button>
+    </form>
+  </div>
 </div>

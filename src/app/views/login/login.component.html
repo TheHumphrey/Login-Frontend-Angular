@@ -1,28 +1,30 @@
-<div class="borda" id="borda">
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <mat-form-field class="example-full-width">
-            <mat-label class="anim">Email</mat-label>
-            <input #emailhtml [(ngModel)]="usuario.username" class="input" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                placeholder="Ex. pat@example.com">
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Digite um Email Valido!
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email é <strong>Obrigatorio</strong>
-            </mat-error>
-        </mat-form-field>
+<div class="container">
+    <div class="borda" id="borda">
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <mat-form-field class="example-full-width">
+                <mat-label class="anim">Email</mat-label>
+                <input #emailhtml [(ngModel)]="usuario.username" class="input" matInput [formControl]="emailFormControl"
+                    [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Digite um Email Valido!
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email é <strong>Obrigatorio</strong>
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label class="anim">Senha</mat-label>
-            <input [(ngModel)]="usuario.password" type="password" class="input" matInput [formControl]="passwordFormControl"
-                [errorStateMatcher]="matcher">
-            <mat-error *ngIf="passwordFormControl.hasError('required')">
-                Senha é <strong>Obrigatorio</strong>
-            </mat-error>
-        </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label class="anim">Senha</mat-label>
+                <input [(ngModel)]="usuario.password" type="password" class="input" matInput
+                    [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    Senha é <strong>Obrigatorio</strong>
+                </mat-error>
+            </mat-form-field>
 
-        <button type="submit" mat-raised-button color="primary">Logar</button>
-    </form>
+            <button type="submit" mat-raised-button color="primary">Logar</button>
+        </form>
 
-    <a class="link" id="link" routerLink="cadastro">Cadastrar-se</a>
+        <a class="link" id="link" routerLink="cadastro">Cadastrar-se</a>
+    </div>
 </div>

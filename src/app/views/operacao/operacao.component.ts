@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, FormControl } from '@angular/forms';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { IDashboard } from 'src/app/models/dashboard/dashboard.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operacao',
@@ -11,9 +12,9 @@ import { IDashboard } from 'src/app/models/dashboard/dashboard.model';
 export class OperacaoComponent implements OnInit {
 
   public form: FormGroup;
-  public data: IDashboard = { email: "", entregues: 1, andamento: 1, naoEntregues: 1 };
+  public data: IDashboard = { email: "", entregues: 0, andamento: 0, naoEntregues: 0 };
 
-  constructor(private fb: FormBuilder, private dash: DashboardService) {
+  constructor(private fb: FormBuilder, private dash: DashboardService, private router: Router) {
     this.form = this.fb.group([]);
   }
 
@@ -22,7 +23,7 @@ export class OperacaoComponent implements OnInit {
   }
 
   entregue() {
-    if (this.data.andamento >= 0) {
+    if (this.data.andamento > 0) {
       this.data.entregues++
       this.data.andamento--
       this.dash.updateData(this.data)
@@ -37,9 +38,12 @@ export class OperacaoComponent implements OnInit {
     }
   }
 
-
   load() {
     this.dash.loadData().subscribe(res => this.data = res.body);
+  }
+
+  nextPage() {
+    this.router.navigate(['dashboard'])
   }
 
 }

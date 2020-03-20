@@ -1,5 +1,13 @@
 /* Div */
 
+.container{
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .borda {
     width: 250px;
     height: 390px;

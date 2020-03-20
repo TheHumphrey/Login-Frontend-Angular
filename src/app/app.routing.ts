@@ -12,7 +12,7 @@ import { OperacaoComponent } from './views/operacao/operacao.component';
 
 const routes: Routes = [
   {
-    path: 'operacao',
+    path: '',
     component: LoginComponent
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: '',
+    path: 'operacao',
     component: OperacaoComponent
   }
 ];

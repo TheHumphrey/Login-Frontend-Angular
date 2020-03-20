@@ -1,0 +1,111 @@
+
+.container{
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 50%;
+    width: 70%;
+    position: absolute;
+    right: 0px;
+    top: 36px;
+    display: flex;
+}
+
+.grafico1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 40%;
+    background-color: turquoise;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.grafico2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50%;
+    width: 60%;
+    background-color: yellow;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.grafico3 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50%;
+    width: 60%;
+    background-color: green;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.desc1 {
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    height: 50%;
+    width: 30%;
+    background-color: orange;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.desc2 {
+    position: absolute;
+    top: 53.9%;
+    left: 0px;
+    height: 49.9%;
+    width: 30%;
+    background-color: orangered;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.desc3 {
+    position: absolute;
+    top: 53.9%;
+    left: 30%;
+    height: 24%;
+    width: 70%;
+    background-color: blue;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.desc4 {
+    position: absolute;
+    top: 77.9%;
+    left: 30%;
+    height: 25.9%;
+    width: 35%;
+    background-color: brown;
+    justify-self: end;
+    flex-direction: column;
+}
+
+.desc5 {
+    position: absolute;
+    top: 77.9%;
+    right: 0%;
+    height: 25.9%;
+    width: 35%;
+    background-color: gray;
+    justify-self: end;
+    flex-direction: column;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+}
+
