@@ -20,19 +20,56 @@ export class DashboardService {
     return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user).subscribe();
   }
 
-  loadOptions() {
+  loadOptionsEntrega() {
     var options = {
       title: 'Status das entregas',
       titleTextStyle: {
-        color: 'white',
+        color: 'black',
         fontSize: 16,
         bold: true,
       },
       backgroundColor: 'transparent',
       colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
-      legend: { textStyle: { color: 'white', fontSize: 14, bold: true } },
+      legend: { textStyle: { color: 'black', fontSize: 16, bold: true } },
       is3D: true,
-      width: 440
+      width: 799.25
+    };
+
+    return options;
+  }
+
+  loadOptionsSatisfacao() {
+    var options = {
+      title: 'Status das entregas',
+      titleTextStyle: {
+        color: 'black',
+        fontSize: 14,
+        bold: true,
+      },
+      backgroundColor: 'transparent',
+      colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
+      legend: { textStyle: { color: 'black', fontSize: 14, bold: true } },
+      is3D: true,
+      width: 535.83,
+      height: 460
+    };
+
+    return options;
+  }
+
+  loadOptionsPrazo() {
+    var options = {
+      title: 'Status das entregas',
+      titleTextStyle: {
+        color: 'black',
+        fontSize: 16,
+        bold: true,
+      },
+      backgroundColor: 'transparent',
+      colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
+      legend: { textStyle: { color: 'black', fontSize: 16, bold: true } },
+      is3D: true,
+      width: 799.25
     };
 
     return options;

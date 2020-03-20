@@ -36,8 +36,9 @@
     width: 60%;
     background-color: transparent;
     border-bottom: solid rgba(0, 0, 0, 0.11);
-    justify-self: end;
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chartPrazo {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DashboardService } from '../../services/dashboard/dashboard.service'
 import { IDashboard } from 'src/app/models/dashboard/dashboard.model';
-import { Router } from '@angular/router';
 
 declare var google: any;
 
@@ -15,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   private data: IDashboard = { email: "", entregues: 1, andamento: 1, naoEntregues: 1 };
 
-  constructor(private dash: DashboardService, private router: Router) { }
+  constructor(private dash: DashboardService) { }
 
   ngOnInit(): void {
     if (typeof (google !== 'undefined')) {
@@ -28,6 +27,12 @@ export class DashboardComponent implements OnInit {
   }
 
   loadDrawn() {
+    this.entregasChart();
+    this.PrazoChart()
+    this.SatisfacaoChart()
+  }
+
+  entregasChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ['Status', 'Quantidade'],
       ['Entregue', this.data.entregues],
@@ -35,10 +40,28 @@ export class DashboardComponent implements OnInit {
       ['Não entregues', this.data.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartEntregas'));
-    chart.draw(dataGoogle, this.dash.loadOptions());
+    chart.draw(dataGoogle, this.dash.loadOptionsEntrega());
   }
 
-  nextPage() {
-    // this.router.navigate(['operacao']);
+  SatisfacaoChart() {
+    var dataGoogle = google.visualization.arrayToDataTable([
+      ['Status', 'Quantidade'],
+      ['Entregue', this.data.entregues],
+      ['Andamento', this.data.andamento],
+      ['Não entregues', this.data.naoEntregues]
+    ])
+    var chart = new google.visualization.PieChart(document.getElementById('chartSatisfacao'));
+    chart.draw(dataGoogle, this.dash.loadOptionsSatisfacao());
+  }
+
+  PrazoChart() {
+    var dataGoogle = google.visualization.arrayToDataTable([
+      ['Status', 'Quantidade'],
+      ['Entregue', this.data.entregues],
+      ['Andamento', this.data.andamento],
+      ['Não entregues', this.data.naoEntregues]
+    ])
+    var chart = new google.visualization.PieChart(document.getElementById('chartPrazo'));
+    chart.draw(dataGoogle, this.dash.loadOptionsPrazo());
   }
 }
