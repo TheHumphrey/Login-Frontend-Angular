@@ -130,7 +130,15 @@
     margin-left: 10px;
     padding-left: 10px;
     padding-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0px 10px 10px 0px;
     color: #fff;
+}
+
+.label:hover{
+    background-color: rgba(1, 5, 247, 0.377);
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
 }
 
 .label2 {
@@ -138,21 +146,37 @@
     font-size: 20px;
     height: 50px;
     width: 155px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0px 10px 10px 0px;
     margin-left: 10px;
     margin-top: 15px;
     padding-left: 10px;
     color: #fff;
 }
 
+.label2:hover{
+    background-color: rgba(1, 5, 247, 0.377);
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
 .labeloff {
     border-left: 4px solid rgba(42, 247, 1, 0.774);
     font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0px 10px 10px 0px;
     height: 50px;
     width: 155px;
     margin-left: 10px;
     margin-top: 15px;
     padding-left: 10px;
     color: #fff;
+}
+
+.labeloff:hover{
+    background-color: rgba(1, 5, 247, 0.377);
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
 }
 
 .labelLucro {
