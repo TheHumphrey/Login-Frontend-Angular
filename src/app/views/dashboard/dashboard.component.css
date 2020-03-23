@@ -187,6 +187,8 @@
     height: 50px;
     width: 200px;
     border-bottom: 4px solid rgba(42, 247, 1, 0.774);
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 10px 10px 0px 0px;
     font-size: 25px;
     margin-left: 10px;
     padding-left: 10px;
@@ -194,11 +196,18 @@
     color: #fff;
 }
 
+.labelLucro:hover{
+    background-color: rgba(1, 5, 247, 0.377);
+    cursor: pointer;
+}
+
 .labelLucroOff {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 0px 0px 10px 10px;
     height: 50px;
     width: 200px;
     font-size: 25px;
@@ -206,6 +215,11 @@
     padding-left: 10px;
     padding-top: 15px;
     color: #fff;
+}
+
+.labelLucroOff:hover{
+    background-color: rgba(1, 5, 247, 0.377);
+    cursor: pointer;
 }
 
 .labelTempo {
