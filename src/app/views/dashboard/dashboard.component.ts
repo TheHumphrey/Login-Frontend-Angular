@@ -17,13 +17,13 @@ export class DashboardComponent implements OnInit {
   constructor(private dash: DashboardService) { }
 
   ngOnInit(): void {
-    if (typeof (google !== 'undefined')) {
-      google.charts.load('current', { 'packages': ['corechart'] });
-      this.dash.loadData().subscribe(res => this.data = res.body)
-      setTimeout(() => {
-        google.charts.setOnLoadCallback(this.loadDrawn());
-      }, 1000)
-    }
+    // if (typeof (google !== 'undefined')) {
+    //   google.charts.load('current', { 'packages': ['corechart'] });
+    //   this.dash.loadData().subscribe(res => this.data = res.body)
+    //   setTimeout(() => {
+    //     google.charts.setOnLoadCallback(this.loadDrawn());
+    //   }, 1000)
+    // }
   }
 
   loadDrawn() {
