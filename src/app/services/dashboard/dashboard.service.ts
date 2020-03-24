@@ -21,7 +21,7 @@ export class DashboardService {
     return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user).subscribe();
   }
 
-  loadOptionsEntrega() {
+  loadOptionsEntrega(obj) {
     var options = {
       title: 'Status das entregas',
       titleTextStyle: {
@@ -33,13 +33,14 @@ export class DashboardService {
       colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
       legend: { textStyle: { color: 'black', fontSize: 16, bold: true } },
       is3D: true,
-      width: 799.25
+      width: obj.width,
+      height: obj.height
     };
 
     return options;
   }
 
-  loadOptionsSatisfacao() {
+  loadOptionsSatisfacao(obj) {
     var options = {
       title: 'Status das entregas',
       titleTextStyle: {
@@ -51,14 +52,14 @@ export class DashboardService {
       colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
       legend: { textStyle: { color: 'black', fontSize: 14, bold: true } },
       is3D: true,
-      width: 535.83,
-      height: 460
+      width: obj.width,
+      height: obj.height
     };
 
     return options;
   }
 
-  loadOptionsPrazo() {
+  loadOptionsPrazo(obj) {
     var options = {
       title: 'Status das entregas',
       titleTextStyle: {
@@ -70,7 +71,8 @@ export class DashboardService {
       colors: ['#41FC2E', '#E9FF2E', '#FD2C13'],
       legend: { textStyle: { color: 'black', fontSize: 16, bold: true } },
       is3D: true,
-      width: 799.25
+      width: obj.width,
+      height: obj.height
     };
 
     return options;

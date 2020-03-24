@@ -13,26 +13,26 @@ declare var google: any;
 })
 export class DashboardComponent implements OnInit {
 
-  private dataChart: IDashboardChart = { 
-    email: "", 
-    entregues: 1, 
-    andamento: 1, 
-    naoEntregues: 1 
+  private dataChart: IDashboardChart = {
+    email: "",
+    entregues: 1,
+    andamento: 1,
+    naoEntregues: 1
   };
-  dataAll: IDashboardData = { 
-    lucroBruto: 0, 
-    lucroDesconto: 0, 
-    tempoEntrega: 0, 
-    tempoRota: 0, 
-    tempoSemanal: 0, 
-    kmDiario: 0, 
-    kmSemanal: 0, 
-    kmMensal: 0, 
-    custoDiario: 0, 
-    custoSemanal: 0, 
-    custoMensal: 0, 
-    disponivelFrota: 0, 
-    manutencaoFrota: 0, 
+  dataAll: IDashboardData = {
+    lucroBruto: 0,
+    lucroDesconto: 0,
+    tempoEntrega: 0,
+    tempoRota: 0,
+    tempoSemanal: 0,
+    kmDiario: 0,
+    kmSemanal: 0,
+    kmMensal: 0,
+    custoDiario: 0,
+    custoSemanal: 0,
+    custoMensal: 0,
+    disponivelFrota: 0,
+    manutencaoFrota: 0,
     indisponivelFrota: 0
   };
 
@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit {
       ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartEntregas'));
-    chart.draw(dataGoogle, this.dash.loadOptionsEntrega());
+    chart.draw(dataGoogle, this.dash.loadOptionsEntrega(this.size('chartEntregas')));
   }
 
   SatisfacaoChart() {
@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit {
       ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartSatisfacao'));
-    chart.draw(dataGoogle, this.dash.loadOptionsSatisfacao());
+    chart.draw(dataGoogle, this.dash.loadOptionsSatisfacao(this.size('chartSatisfacao')));
   }
 
   PrazoChart() {
@@ -85,10 +85,17 @@ export class DashboardComponent implements OnInit {
       ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartPrazo'));
-    chart.draw(dataGoogle, this.dash.loadOptionsPrazo());
+    chart.draw(dataGoogle, this.dash.loadOptionsPrazo(this.size('chartPrazo')));
   }
 
-  loadDataDash(){
+  loadDataDash() {
     this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body);
+  }
+
+  size(string) {
+    var element = document.getElementById(string);
+    var positionInfo = element.getBoundingClientRect();
+    var obj = { height: positionInfo.height, width: positionInfo.width };
+    return obj;
   }
 }
