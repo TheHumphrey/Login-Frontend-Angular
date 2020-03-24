@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DashboardService } from '../../services/dashboard/dashboard.service'
-import { IDashboard } from 'src/app/models/dashboard/dashboard.model';
+import { IDashboardChart } from 'src/app/models/dashboard/dashboardChart.model';
+import { IDashboardData } from 'src/app/models/dashboard/dashboardDataAll.model';
 
 declare var google: any;
 
@@ -12,20 +13,40 @@ declare var google: any;
 })
 export class DashboardComponent implements OnInit {
 
-  private data: IDashboard = { email: "", entregues: 1, andamento: 1, naoEntregues: 1 };
+  private dataChart: IDashboardChart = { 
+    email: "", 
+    entregues: 1, 
+    andamento: 1, 
+    naoEntregues: 1 
+  };
+  dataAll: IDashboardData = { 
+    lucroBruto: 0, 
+    lucroDesconto: 0, 
+    tempoEntrega: 0, 
+    tempoRota: 0, 
+    tempoSemanal: 0, 
+    kmDiario: 0, 
+    kmSemanal: 0, 
+    kmMensal: 0, 
+    custoDiario: 0, 
+    custoSemanal: 0, 
+    custoMensal: 0, 
+    disponivelFrota: 0, 
+    manutencaoFrota: 0, 
+    indisponivelFrota: 0
+  };
 
   constructor(private dash: DashboardService) { }
 
   ngOnInit(): void {
-    // if (typeof (google !== 'undefined')) {
-    //   google.charts.load('current', { 'packages': ['corechart'] });
-    //   this.dash.loadData().subscribe(res => this.data = res.body)
-    //   setTimeout(() => {
-    //     google.charts.setOnLoadCallback(this.loadDrawn());
-    //   }, 1000)
-    // }
-
-    // loadDataDash();
+    this.loadDataDash();
+    if (typeof (google !== 'undefined')) {
+      google.charts.load('current', { 'packages': ['corechart'] });
+      this.dash.loadData().subscribe(res => this.dataChart = res.body)
+      setTimeout(() => {
+        google.charts.setOnLoadCallback(this.loadDrawn());
+      }, 1000)
+    }
   }
 
   loadDrawn() {
@@ -37,9 +58,9 @@ export class DashboardComponent implements OnInit {
   entregasChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ['Status', 'Quantidade'],
-      ['Entregue', this.data.entregues],
-      ['Andamento', this.data.andamento],
-      ['Não entregues', this.data.naoEntregues]
+      ['Entregue', this.dataChart.entregues],
+      ['Andamento', this.dataChart.andamento],
+      ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartEntregas'));
     chart.draw(dataGoogle, this.dash.loadOptionsEntrega());
@@ -48,9 +69,9 @@ export class DashboardComponent implements OnInit {
   SatisfacaoChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ['Status', 'Quantidade'],
-      ['Entregue', this.data.entregues],
-      ['Andamento', this.data.andamento],
-      ['Não entregues', this.data.naoEntregues]
+      ['Entregue', this.dataChart.entregues],
+      ['Andamento', this.dataChart.andamento],
+      ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartSatisfacao'));
     chart.draw(dataGoogle, this.dash.loadOptionsSatisfacao());
@@ -59,15 +80,15 @@ export class DashboardComponent implements OnInit {
   PrazoChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ['Status', 'Quantidade'],
-      ['Entregue', this.data.entregues],
-      ['Andamento', this.data.andamento],
-      ['Não entregues', this.data.naoEntregues]
+      ['Entregue', this.dataChart.entregues],
+      ['Andamento', this.dataChart.andamento],
+      ['Não entregues', this.dataChart.naoEntregues]
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartPrazo'));
     chart.draw(dataGoogle, this.dash.loadOptionsPrazo());
   }
 
   loadDataDash(){
-
+    this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body);
   }
 }

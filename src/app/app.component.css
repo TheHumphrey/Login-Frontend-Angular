@@ -25,6 +25,7 @@ html, body {
 }
 
 .navLight {
+    height: 5%;
     display: flex;
     justify-content: flex-end;
     color: black;

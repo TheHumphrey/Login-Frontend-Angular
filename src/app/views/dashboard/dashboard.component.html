@@ -10,10 +10,10 @@
         <div class="back">
             <label class="title">Lucro</label>
             <label class="labelBlock">Lucro c/ Desconto
-                <span class="moneyText">R$ 500</span>
+                <span class="moneyText">R$ {{dataAll.lucroDesconto}}</span>
             </label>
             <label class="labelBlockOff">Lucro Bruto
-                <span class="moneyText">R$ 5000</span>
+                <span class="moneyText">R$ {{dataAll.lucroBruto}}</span>
             </label>
         </div>
     </div>
@@ -22,13 +22,13 @@
         <div class="back">
             <label class="title">Tempo Médios</label>
             <label class="labelBlock">Tempo Entrega
-                <p class="blockText">30m</p>
+                <p class="blockText">{{dataAll.tempoEntrega}}m</p>
             </label>
             <label class="labelBlockTwo">Tempo Rota
-                <p class="blockText">5h</p>
+                <p class="blockText">{{dataAll.tempoRota}}h</p>
             </label>
             <label class="labelBlockOff">Tempo
-                <p class="blockText">200h</p>
+                <p class="blockText">{{dataAll.tempoSemanal}}h</p>
             </label>
         </div>
     </div>
@@ -37,13 +37,13 @@
         <div class="backTwo">
             <label class="titleColumn">Km Médio</label>
             <label class="labelLine">Km Diario
-                <p class="blockText">30</p>
+                <p class="blockText">{{dataAll.kmDiario}} km</p>
             </label>
             <label class="labelLine">Km Semanal
-                <p class="blockText">240</p>
+                <p class="blockText">{{dataAll.kmSemanal}} km</p>
             </label>
             <label class="labelLine">Km Mensal
-                <p class="blockText">2500</p>
+                <p class="blockText">{{dataAll.kmMensal}} km</p>
             </label>
         </div>
     </div>
@@ -52,13 +52,13 @@
         <div class="backTwo">
             <label class="titleColumn">Média de Custos</label>
             <label class="labelLine">Custo Diario
-                <span class="moneyText">R$ 500</span>
+                <span class="moneyText">R$ {{dataAll.custoDiario}}</span>
             </label>
             <label class="labelLine">Custo Semanal
-                <span class="moneyText">R$ 5000</span>
+                <span class="moneyText">R$ {{dataAll.custoSemanal}}</span>
             </label>
             <label class="labelLine">Custo Mensal
-                <span class="moneyText">R$ 50000</span>
+                <span class="moneyText">R$ {{dataAll.custoMensal}}</span>
             </label>
         </div>
     </div>
@@ -67,13 +67,13 @@
         <div class="back">
             <label class="title">Frota</label>
             <label class="labelBlock">Disponivel
-                <p class="blockText">90</p>
+                <p class="blockText">{{dataAll.disponivelFrota}}</p>
             </label>
             <label class="labelBlockTwo">Manutenção
-                <p class="blockText">5</p>
+                <p class="blockText">{{dataAll.manutencaoFrota}}</p>
             </label>
             <label class="labelBlockOff">Indisponivel
-                <p class="blockText">1</p>
+                <p class="blockText">{{dataAll.indisponivelFrota}}</p>
             </label>
         </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, FormControl } from '@angular/forms';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
-import { IDashboard } from 'src/app/models/dashboard/dashboard.model';
+import { IDashboardChart } from 'src/app/models/dashboard/dashboardChart.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class OperacaoComponent implements OnInit {
 
   public form: FormGroup;
-  public data: IDashboard = { email: "", entregues: 0, andamento: 0, naoEntregues: 0 };
+  public data: IDashboardChart = { email: "", entregues: 0, andamento: 0, naoEntregues: 0 };
 
   constructor(private fb: FormBuilder, private dash: DashboardService, private router: Router) {
     this.form = this.fb.group([]);
