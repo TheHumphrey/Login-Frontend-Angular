@@ -58,9 +58,9 @@ export class DashboardComponent implements OnInit {
   entregasChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ["Status", "Quantidade", { role: "style" } ],
-      ["Entregue", this.dataChart.entregues, "green"],
-      ["Andamento", this.dataChart.andamento, "yellow"],
-      ["Não entregues", this.dataChart.naoEntregues, "red"]
+      ["Entregue", this.dataChart.entregues, "#4dff4d"],
+      ["Andamento", this.dataChart.andamento, "#ffff33"],
+      ["Não entregues", this.dataChart.naoEntregues, "#ff0000"]
     ]);
     var chart = new google.visualization.ColumnChart(document.getElementById('chartEntregas'));
     chart.draw(dataGoogle, this.dash.loadOptionsEntrega(this.size('chartEntregas')));
@@ -80,10 +80,10 @@ export class DashboardComponent implements OnInit {
   PrazoChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
       ["WeekDay", "Hours", { role: "style" } ],
-      ["Segunda", 7.05, "#b87333"],
-      ["Terça", 10.49, "silver"],
-      ["Quarta", 6.30, "gold"],
-      ["Quinta", 9.45, "green"]
+      ["Segunda", 7.05, "#0000ff"],
+      ["Terça", 10.49, "#66ff66"],
+      ["Quarta", 6.30, "#ff0066"],
+      ["Quinta", 9.45, "#66ff66"]
     ]);
     var chart = new google.visualization.ColumnChart(document.getElementById('chartPrazo'));
     chart.draw(dataGoogle, this.dash.loadOptionsPrazo(this.size('chartPrazo')));
