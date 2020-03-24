@@ -7,23 +7,23 @@
     flex-direction: column;
 }
 
-.back{
+.back {
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.11);
-    border: 4px solid rgba(0, 0, 0, 0.027);
+    /* border: 4px solid rgba(0, 0, 0, 0.027); */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.backTwo{
+.backTwo {
     background: rgba(0, 0, 0, 0.11);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid rgba(0, 0, 0, 0.027);
+    /* border: 4px solid rgba(0, 0, 0, 0.027); */
     height: 100%;
     width: 100%;
 }
@@ -148,14 +148,6 @@
     flex-direction: column;
 }
 
-/* Divs Titles */
-
-.titleLucro{
-    position: absolute;
-    left: 120px;
-    top: 100px;
-}
-
 /* Elementos - Label */
 
 .labelLine {
@@ -174,54 +166,12 @@
     padding-top: 15px;
 }
 
-.labelLine:hover{
+.labelLine:hover {
     background-color: rgba(250, 250, 250, 0.493);
     cursor: pointer;
 }
 
-.labelLineTwo {
-    border-left: 4px solid rgba(42, 247, 1, 0.774);
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0px 10px 10px 0px;
-    color: #fff;
-    height: 45px;
-    width: 155px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-}
-
-.labelLineTwo:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelLineOff {
-    border-left: 4px solid rgba(42, 247, 1, 0.774);
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0px 10px 10px 0px;
-    color: #fff;
-    height: 45px;
-    width: 155px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;;
-}
-
-.labelLineOff:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelLucro {
+.labelBlock {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -238,12 +188,33 @@
     color: #fff;
 }
 
-.labelLucro:hover{
+.labelBlock:hover {
     background-color: rgba(250, 250, 250, 0.493);
     cursor: pointer;
 }
 
-.labelLucroOff {
+.labelBlockTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
+    background-color: rgba(255, 255, 255, 0.11);
+    font-size: 14px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.labelBlockTwo:hover {
+    background-color: rgba(250, 250, 250, 0.493);
+    cursor: pointer;
+}
+
+.labelBlockOff {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,148 +230,20 @@
     color: #fff;
 }
 
-.labelLucroOff:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelTempo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 200px;
-    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
-    background-color: rgba(255, 255, 255, 0.11);
-    border-radius: 10px 10px 0px 0px;
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelTempo:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelTempotwo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 200px;
-    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
-    background-color: rgba(255, 255, 255, 0.11);
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelTempotwo:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelTempoOff {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.11);
-    border-radius: 0px 0px  10px 10px;
-    height: 50px;
-    width: 200px;
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelTempoOff:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelFrota {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 200px;
-    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
-    background-color: rgba(255, 255, 255, 0.11);
-    border-radius: 10px 10px 0px 0px;
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelFrota:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelFrotatwo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 200px;
-    border-bottom: 4px solid rgba(42, 247, 1, 0.774);
-    background-color: rgba(255, 255, 255, 0.11);
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelFrotatwo:hover{
-    background-color: rgba(250, 250, 250, 0.493);
-    cursor: pointer;
-}
-
-.labelFrotaOff {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.11);
-    border-radius: 0px 0px  10px 10px;
-    height: 50px;
-    width: 200px;
-    font-size: 14px;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    color: #fff;
-}
-
-.labelFrotaOff:hover{
+.labelBlockOff:hover {
     background-color: rgba(250, 250, 250, 0.493);
     cursor: pointer;
 }
 
 /* Elementos - Text */
 
-.textKm {
+.blockText {
     padding-top: 5px;
     font-weight: bold;
     font-size: 30px;
 }
 
-.textCusto {
+.moneyText {
     margin-bottom: 12px;
     padding-top: 5px;
     font-weight: bold;
@@ -408,10 +251,16 @@
     color: rgba(61, 245, 24, 0.966);
 }
 
-.textLucro {
-    padding-top: 15px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 30px;
-    color: rgba(61, 245, 24, 0.966);
+.title {
+    position: relative;
+    bottom: 10px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.titleColumn {
+    position: absolute;
+    top: 10px;
+    font-size: 24px;
+    color: #fff;
 }

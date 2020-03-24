@@ -63,6 +63,6 @@ export function background(bool) {
     document.getElementById("borda").className = "bordaLight";
   } else {
     document.getElementById("link").className = "link";
-    document.getElementById("borda").className = "container";
+    document.getElementById("borda").className = "borda";
   }
 }

@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
     //     google.charts.setOnLoadCallback(this.loadDrawn());
     //   }, 1000)
     // }
+
+    // loadDataDash();
   }
 
   loadDrawn() {
@@ -63,5 +65,9 @@ export class DashboardComponent implements OnInit {
     ])
     var chart = new google.visualization.PieChart(document.getElementById('chartPrazo'));
     chart.draw(dataGoogle, this.dash.loadOptionsPrazo());
+  }
+
+  loadDataDash(){
+
   }
 }
