@@ -57,12 +57,12 @@ export class DashboardComponent implements OnInit {
 
   entregasChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
-      ['Status', 'Quantidade'],
-      ['Entregue', this.dataChart.entregues],
-      ['Andamento', this.dataChart.andamento],
-      ['Não entregues', this.dataChart.naoEntregues]
-    ])
-    var chart = new google.visualization.PieChart(document.getElementById('chartEntregas'));
+      ["Status", "Quantidade", { role: "style" } ],
+      ["Entregue", this.dataChart.entregues, "green"],
+      ["Andamento", this.dataChart.andamento, "yellow"],
+      ["Não entregues", this.dataChart.naoEntregues, "red"]
+    ]);
+    var chart = new google.visualization.ColumnChart(document.getElementById('chartEntregas'));
     chart.draw(dataGoogle, this.dash.loadOptionsEntrega(this.size('chartEntregas')));
   }
 
@@ -79,12 +79,13 @@ export class DashboardComponent implements OnInit {
 
   PrazoChart() {
     var dataGoogle = google.visualization.arrayToDataTable([
-      ['Status', 'Quantidade'],
-      ['Entregue', this.dataChart.entregues],
-      ['Andamento', this.dataChart.andamento],
-      ['Não entregues', this.dataChart.naoEntregues]
-    ])
-    var chart = new google.visualization.PieChart(document.getElementById('chartPrazo'));
+      ["WeekDay", "Hours", { role: "style" } ],
+      ["Segunda", 7.05, "#b87333"],
+      ["Terça", 10.49, "silver"],
+      ["Quarta", 6.30, "gold"],
+      ["Quinta", 9.45, "green"]
+    ]);
+    var chart = new google.visualization.ColumnChart(document.getElementById('chartPrazo'));
     chart.draw(dataGoogle, this.dash.loadOptionsPrazo(this.size('chartPrazo')));
   }
 
