@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../services/dashboard/dashboard.service'
 import { IDashboardChart } from 'src/app/models/dashboard/dashboardChart.model';
 import { IDashboardData } from 'src/app/models/dashboard/dashboardDataAll.model';
+import { Chart } from 'chart.js';
 
 declare var google: any;
 
@@ -40,63 +41,122 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDataDash();
-    if (typeof (google !== 'undefined')) {
-      google.charts.load('current', { 'packages': ['corechart'] });
-      this.dash.loadData().subscribe(res => this.dataChart = res.body)
-      setTimeout(() => {
-        google.charts.setOnLoadCallback(this.loadDrawn());
-      }, 1000)
-    }
+
+    this.loadEntregasChart();
+    this.loadSatisfacaoChart();
+    this.loadPrazoChart()
+
+  }
+
+  loadEntregasChart() {
+    var element = document.getElementById('entregasChart');
+    var myChart = new Chart(element, {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [this.dataChart.entregues, this.dataChart.andamento, this.dataChart.naoEntregues],
+          backgroundColor: ["rgba(5, 255, 43, .6)", "rgba(255, 244, 36, .6)", "rgba(255, 5, 5, .6)"],
+          borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
+          hoverBorderColor: '#fff'
+        }],
+        labels: [
+          'Entregues',
+          'Andamento',
+          'Não entregues'
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+      }
+    });
+  }
+
+  loadSatisfacaoChart() {
+    var element = document.getElementById('satisfacaoChart');
+    var myChart = new Chart(element, {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [this.dataChart.entregues, this.dataChart.andamento, this.dataChart.naoEntregues],
+          backgroundColor: ["rgba(5, 255, 43, .6)", "rgba(255, 244, 36, .6)", "rgba(255, 5, 5, .6)"],
+          borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
+          hoverBorderColor: '#fff'
+        }],
+        labels: [
+          'Satisfeito',
+          'Neutro',
+          'Insatisfeito'
+        ]
+      },
+      options: {
+        maintainAspectRatio: true,
+        
+      }
+    });
+  }
+
+  loadPrazoChart() {
+    var element = document.getElementById('prazoChart');
+    var myChart = new Chart(element, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        maintainAspectRatio: false,
+        title: {
+          display: false,
+          text: 'Teste'
+        },
+        scales: {
+          yAxes: [{
+            stacked: true,
+            gridLines: {
+              display: true,
+              color: "rgba(158, 158, 158, .6)"
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
+        }
+      }
+    })
   }
 
   loadDrawn() {
-    this.entregasChart();
-    this.PrazoChart()
-    this.SatisfacaoChart()
-  }
 
-  entregasChart() {
-    var dataGoogle = google.visualization.arrayToDataTable([
-      ["Status", "Quantidade", { role: "style" } ],
-      ["Entregue", this.dataChart.entregues, "#4dff4d"],
-      ["Andamento", this.dataChart.andamento, "#ffff33"],
-      ["Não entregues", this.dataChart.naoEntregues, "#ff0000"]
-    ]);
-    var chart = new google.visualization.ColumnChart(document.getElementById('chartEntregas'));
-    chart.draw(dataGoogle, this.dash.loadOptionsEntrega(this.size('chartEntregas')));
-  }
-
-  SatisfacaoChart() {
-    var dataGoogle = google.visualization.arrayToDataTable([
-      ['Status', 'Quantidade'],
-      ['Entregue', this.dataChart.entregues],
-      ['Andamento', this.dataChart.andamento],
-      ['Não entregues', this.dataChart.naoEntregues]
-    ])
-    var chart = new google.visualization.PieChart(document.getElementById('chartSatisfacao'));
-    chart.draw(dataGoogle, this.dash.loadOptionsSatisfacao(this.size('chartSatisfacao')));
-  }
-
-  PrazoChart() {
-    var dataGoogle = google.visualization.arrayToDataTable([
-      ["WeekDay", "Hours", { role: "style" } ],
-      ["Segunda", 7.05, "#0000ff"],
-      ["Terça", 10.49, "#66ff66"],
-      ["Quarta", 6.30, "#ff0066"],
-      ["Quinta", 9.45, "#66ff66"]
-    ]);
-    var chart = new google.visualization.ColumnChart(document.getElementById('chartPrazo'));
-    chart.draw(dataGoogle, this.dash.loadOptionsPrazo(this.size('chartPrazo')));
   }
 
   loadDataDash() {
     this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body);
   }
-
-  size(string) {
-    var element = document.getElementById(string);
-    var positionInfo = element.getBoundingClientRect();
-    var obj = { height: positionInfo.height, width: positionInfo.width };
-    return obj;
-  }
 }
+
+//   
