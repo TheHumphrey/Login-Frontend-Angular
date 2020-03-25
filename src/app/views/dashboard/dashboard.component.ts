@@ -18,7 +18,14 @@ export class DashboardComponent implements OnInit {
     email: "",
     entregues: 1,
     andamento: 1,
-    naoEntregues: 1
+    naoEntregues: 1,
+
+    emDias: 1,
+    emAtraso: 1,
+
+    satisfeito: 1,
+    neutro: 1,
+    insatisfeito: 1
   };
   dataAll: IDashboardData = {
     lucroBruto: 0,
@@ -77,7 +84,7 @@ export class DashboardComponent implements OnInit {
       type: 'doughnut',
       data: {
         datasets: [{
-          data: [this.dataChart.entregues, this.dataChart.andamento, this.dataChart.naoEntregues],
+          data: [this.dataChart.satisfeito, this.dataChart.neutro, this.dataChart.naoEntregues],
           backgroundColor: ["rgba(5, 255, 43, .6)", "rgba(255, 244, 36, .6)", "rgba(255, 5, 5, .6)"],
           borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
           hoverBorderColor: '#fff'
@@ -106,7 +113,7 @@ export class DashboardComponent implements OnInit {
       data: {
         labels: ['Em Dias', 'Atraso'],
         datasets: [{
-          data: [12, 19, 3, 5, 2, 3],
+          data: [this.dataChart.emDias, this.dataChart.emAtraso],
           backgroundColor: [
             'rgba(41, 255, 73, .6)',
             'rgba(255, 41, 41, .6)',
@@ -151,6 +158,7 @@ export class DashboardComponent implements OnInit {
   }
 
   loadDataDash() {
+    this.dash.loadData().subscribe(res => this.dataChart = res.body);
     this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body);
   }
 }

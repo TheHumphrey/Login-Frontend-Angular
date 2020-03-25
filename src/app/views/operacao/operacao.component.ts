@@ -12,7 +12,19 @@ import { Router } from '@angular/router';
 export class OperacaoComponent implements OnInit {
 
   public form: FormGroup;
-  public data: IDashboardChart = { email: "", entregues: 0, andamento: 0, naoEntregues: 0 };
+  public data: IDashboardChart = {
+    email: "",
+    entregues: 0,
+    andamento: 0,
+    naoEntregues: 0,
+     
+    emDias: 0,
+    emAtraso: 0,
+
+    satisfeito: 0,
+    neutro: 0,
+    insatisfeito: 0
+    };
 
   constructor(private fb: FormBuilder, private dash: DashboardService, private router: Router) {
     this.form = this.fb.group([]);

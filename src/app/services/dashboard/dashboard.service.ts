@@ -22,5 +22,6 @@ export class DashboardService {
   loadAllDashData(){
     return this.http.get<IDashboardData>(`${apiURL}/dashboard`, { observe: "response" })
   }
+  
 }
 
