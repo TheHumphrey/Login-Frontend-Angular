@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit {
       data: {
         datasets: [{
           data: [this.dataChart.entregues, this.dataChart.andamento, this.dataChart.naoEntregues],
-          backgroundColor: ["rgba(5, 255, 43, .6)", "rgba(255, 244, 36, .6)", "rgba(255, 5, 5, .6)"],
+          backgroundColor: ["rgba(66, 255, 95, .6)", "rgba(246, 255, 66, .6)", "rgba(255, 66, 66, .6)"],
           borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
           hoverBorderColor: '#fff'
         }],
@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
       data: {
         datasets: [{
           data: [this.dataChart.satisfeito, this.dataChart.neutro, this.dataChart.naoEntregues],
-          backgroundColor: ["rgba(5, 255, 43, .6)", "rgba(255, 244, 36, .6)", "rgba(255, 5, 5, .6)"],
+          backgroundColor: ["rgba(66, 255, 95, .6)", "rgba(246, 255, 66, .6)", "rgba(255, 66, 66, .6)"],
           borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
           hoverBorderColor: '#fff'
         }],
