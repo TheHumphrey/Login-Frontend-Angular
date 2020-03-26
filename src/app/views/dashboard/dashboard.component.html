@@ -2,13 +2,25 @@
 
     <div class="charts">
         <div class="chartSatisfacao" id="chartSatisfacao">
-            <canvas id="satisfacaoChart" ></canvas>
+            <ngx-charts-bar-vertical
+                [scheme]="colorScheme" 
+                [results]="single" 
+                [gradient]="gradient"
+                [xAxis]="showXAxis" 
+                [yAxis]="showYAxis" 
+                [legend]="showLegend" 
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel" 
+                [xAxisLabel]="xAxisLabel" 
+                [yAxisLabel]="yAxisLabel"
+            >
+            </ngx-charts-bar-vertical>
         </div>
         <div class="chartEntregas" id="chartEntregas">
-            <canvas id="entregasChart" ></canvas>
+            <canvas id="entregasChart"></canvas>
         </div>
         <div class="chartPrazo" id="chartPrazo">
-            <canvas id="prazoChart" ></canvas>
+            <canvas id="prazoChart"></canvas>
         </div>
     </div>
 

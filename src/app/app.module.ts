@@ -16,6 +16,7 @@ import { AuthGuardService } from './services/guards/auth.guard.service';
 import { PanelComponent } from './views/panel/panel.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { OperacaoComponent } from './views/operacao/operacao.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { OperacaoComponent } from './views/operacao/operacao.component';
     ReactiveFormsModule,
     MatSliderModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxChartsModule
   ],
   providers: [AuthLoginService, AuthGuardService],
   bootstrap: [AppComponent]

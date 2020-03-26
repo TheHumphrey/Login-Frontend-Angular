@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../services/dashboard/dashboard.service'
 import { IDashboardChart } from 'src/app/models/dashboard/dashboardChart.model';
 import { IDashboardData } from 'src/app/models/dashboard/dashboardDataAll.model';
-import { Chart } from 'chart.js';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 declare var google: any;
 
@@ -44,113 +44,44 @@ export class DashboardComponent implements OnInit {
     indisponivelFrota: 0
   };
 
-  constructor(private dash: DashboardService) { }
+  //options chart
+  single: any[];
+
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Country';
+  showYAxisLabel = true;
+  yAxisLabel = 'Population';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+  constructor(private dash: DashboardService) {
+    Object.assign(this, this.single)
+   }
 
   ngOnInit(): void {
     this.loadDataDash();
 
     this.loadEntregasChart();
     this.loadSatisfacaoChart();
-    this.loadPrazoChart()
-
+    this.loadPrazoChart();
   }
 
   loadEntregasChart() {
-    var element = document.getElementById('entregasChart');
-    var myChart = new Chart(element, {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: [this.dataChart.entregues, this.dataChart.andamento, this.dataChart.naoEntregues],
-          backgroundColor: ["rgba(66, 255, 95, .6)", "rgba(246, 255, 66, .6)", "rgba(255, 66, 66, .6)"],
-          borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
-          hoverBorderColor: '#fff'
-        }],
-        labels: [
-          'Entregues',
-          'Andamento',
-          'Não entregues'
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-      }
-    });
+    
   }
 
   loadSatisfacaoChart() {
-    var element = document.getElementById('satisfacaoChart');
-    var myChart = new Chart(element, {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: [this.dataChart.satisfeito, this.dataChart.neutro, this.dataChart.naoEntregues],
-          backgroundColor: ["rgba(66, 255, 95, .6)", "rgba(246, 255, 66, .6)", "rgba(255, 66, 66, .6)"],
-          borderColor: ["rgba(5, 255, 43)", "rgba(255, 244, 36)", "rgba(255, 5, 5)"],
-          hoverBorderColor: '#fff'
-        }],
-        labels: [
-          'Satisfeito',
-          'Neutro',
-          'Insatisfeito'
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-        layout: {
-          padding:{
-            bottom: 15
-          },
-        }
-      }
-    });
+    
   }
 
   loadPrazoChart() {
-    var element = document.getElementById('prazoChart');
-    var myChart = new Chart(element, {
-      type: 'bar',
-      data: {
-        labels: ['Em Dias', 'Atraso'],
-        datasets: [{
-          data: [this.dataChart.emDias, this.dataChart.emAtraso],
-          backgroundColor: [
-            'rgba(41, 255, 73, .6)',
-            'rgba(255, 41, 41, .6)',
-          ],
-          borderColor: [
-            'rgba(41, 255, 73, 1)',
-            'rgba(255, 41, 41, 1)',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        legend: {
-          display: false
-        },
-        layout: {
-          padding:{
-            bottom: 3
-          },
-        },
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            stacked: true,
-            gridLines: {
-              display: false,
-              color: "rgba(158, 158, 158, .6)"
-            }
-          }],
-          xAxes: [{
-            gridLines: {
-              display: true
-            }
-          }]
-        }
-      }
-    })
+    
   }
 
   loadDrawn() {
