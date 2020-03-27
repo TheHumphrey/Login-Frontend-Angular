@@ -20,8 +20,8 @@ export class DashboardComponent implements OnInit {
     andamento: 1,
     naoEntregues: 1,
 
-    emDias: 1,
-    emAtraso: 1,
+    emDias: 0,
+    emAtraso: 0,
 
     satisfeito: 1,
     neutro: 1,
@@ -44,49 +44,88 @@ export class DashboardComponent implements OnInit {
     indisponivelFrota: 0
   };
 
-  //options chart
-  single: any[];
+  prazoChartOptions = {
+    single: [
+      {
+        name: "Em Dias",
+        value: this.dataChart.emDias
+      },
+      {
+        name: "Em Atraso",
+        value: this.dataChart.emAtraso
+      }
+    ],
+    showXAxis: true,
+    showYAxis: true,
+    gradient: false,
+    showLegend: true,
+    showXAxisLabel: true,
+    xAxisLabel: '',
+    showYAxisLabel: false,
+    yAxisLabel: '',
 
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Country';
-  showYAxisLabel = true;
-  yAxisLabel = 'Population';
+    colorScheme: {
+      domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    }
 
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
+  entregasChartOptions = {
+    single: [
+      {
+        name: "Entregues",
+        value: this.dataChart.entregues
+      },
+      {
+        name: "Andamento",
+        value: this.dataChart.andamento
+      },
+      {
+        name: "Não Entregues",
+        value: this.dataChart.naoEntregues
+      }
+    ],
+
+    gradient: true,
+    showLegend: false,
+    showLabels: true,
+    isDoughnut: false,
+    legendPosition: 'below',
+
+    colorScheme: {
+      domain: ['rgba(0, 255, 0)', 'rgba(255, 0, 0)', 'rgba(255, 255, 0)']
+    }
+  };
+
+  satisfacaoChartOption = {
+    single:[
+      {
+        name: "Satisfeito",
+        value: this.dataChart.satisfeito
+      },
+      {
+        name: "Neutro",
+        value: this.dataChart.neutro
+      },
+      {
+        name: "Insatisfeito",
+        value: this.dataChart.insatisfeito
+      }
+    ],
+  colorScheme: {
+    domain: ['rgb(102, 255, 51)', 'rgb(255, 255, 0)', 'rgb(255, 51, 0)']
+  }
+  }
+
+  
+
+
   constructor(private dash: DashboardService) {
-    Object.assign(this, this.single)
-   }
+  };
 
   ngOnInit(): void {
     this.loadDataDash();
-
-    this.loadEntregasChart();
-    this.loadSatisfacaoChart();
-    this.loadPrazoChart();
-  }
-
-  loadEntregasChart() {
-    
-  }
-
-  loadSatisfacaoChart() {
-    
-  }
-
-  loadPrazoChart() {
-    
-  }
-
-  loadDrawn() {
-
-  }
+  };
 
   loadDataDash() {
     this.dash.loadData().subscribe(res => this.dataChart = res.body);

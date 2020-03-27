@@ -2,25 +2,38 @@
 
     <div class="charts">
         <div class="chartSatisfacao" id="chartSatisfacao">
-            <ngx-charts-bar-vertical
-                [scheme]="colorScheme" 
-                [results]="single" 
-                [gradient]="gradient"
-                [xAxis]="showXAxis" 
-                [yAxis]="showYAxis" 
-                [legend]="showLegend" 
-                [showXAxisLabel]="showXAxisLabel"
-                [showYAxisLabel]="showYAxisLabel" 
-                [xAxisLabel]="xAxisLabel" 
-                [yAxisLabel]="yAxisLabel"
+            <ngx-charts-pie-grid
+                [scheme]="satisfacaoChartOption.colorScheme"
+                [results]="satisfacaoChartOption.single"
             >
-            </ngx-charts-bar-vertical>
+            </ngx-charts-pie-grid>
         </div>
         <div class="chartEntregas" id="chartEntregas">
-            <canvas id="entregasChart"></canvas>
+            <ngx-charts-pie-chart
+                [scheme]="entregasChartOptions.colorScheme"
+                [results]="entregasChartOptions.single"
+                [gradient]="entregasChartOptions.gradient"
+                [legend]="entregasChartOptions.showLegend"
+                [legendPosition]="entregasChartOptions.legendPosition"
+                [labels]="entregasChartOptions.showLabels"
+                [doughnut]="entregasChartOptions.isDoughnut"
+            >
+            </ngx-charts-pie-chart>
         </div>
         <div class="chartPrazo" id="chartPrazo">
-            <canvas id="prazoChart"></canvas>
+            <ngx-charts-bar-vertical
+                [scheme]="prazoChartOptions.colorScheme" 
+                [results]="prazoChartOptions.single" 
+                [gradient]="prazoChartOptions.gradient"
+                [xAxis]="prazoChartOptions.showXAxis" 
+                [yAxis]="prazoChartOptions.showYAxis" 
+                [legend]="prazoChartOptions.showLegend" 
+                [showXAxisLabel]="prazoChartOptions.showXAxisLabel"
+                [showYAxisLabel]="prazoChartOptions.showYAxisLabel" 
+                [xAxisLabel]="prazoChartOptions.xAxisLabel" 
+                [yAxisLabel]="prazoChartOptions.yAxisLabel"
+            >
+            </ngx-charts-bar-vertical>
         </div>
     </div>
 
