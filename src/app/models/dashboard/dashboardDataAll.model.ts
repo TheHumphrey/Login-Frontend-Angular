@@ -19,8 +19,8 @@ export interface IDashboardData{
     custoMensal: number;
 
     //frota
-    disponivelFrota: number;
-    manutencaoFrota: number;
-    indisponivelFrota: number;
+    frotaDisponivel: number;
+    frotaManutencao: number;
+    frotaIndisponivel: number;
 
 }

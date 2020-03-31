@@ -39,9 +39,9 @@ export class DashboardComponent implements OnInit {
     custoDiario: 0,
     custoSemanal: 0,
     custoMensal: 0,
-    disponivelFrota: 0,
-    manutencaoFrota: 0,
-    indisponivelFrota: 0
+    frotaDisponivel: 0,
+    frotaManutencao: 0,
+    frotaIndisponivel: 0
   };
 
   prazoChartOptions = {
