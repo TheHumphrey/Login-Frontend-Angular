@@ -16,11 +16,11 @@ export class DashboardService {
   }
 
   updateData(user: IDashboardChart){
-    return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user).subscribe();
+    return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user)
   }
 
   loadAllDashData(){
-    return this.http.get<IDashboardData>(`${apiURL}/dashboard`, { observe: "response" })
+    return this.http.get<IDashboardData>(`${apiURL}/dashboarddata`, { observe: "response" })
   }
   
 }

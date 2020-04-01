@@ -13,7 +13,7 @@ export class OperacaoComponent implements OnInit {
 
   public form: FormGroup;
   public data: IDashboardChart = {
-    email: "",
+    email: '',
     entregues: 0,
     andamento: 0,
     naoEntregues: 0,

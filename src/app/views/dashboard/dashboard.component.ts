@@ -5,8 +5,6 @@ import { IDashboardChart } from 'src/app/models/dashboard/dashboardChart.model';
 import { IDashboardData } from 'src/app/models/dashboard/dashboardDataAll.model';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-declare var google: any;
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,18 +12,18 @@ declare var google: any;
 })
 export class DashboardComponent implements OnInit {
 
-  private dataChart: IDashboardChart = {
+  dataChart: IDashboardChart = {
     email: "",
-    entregues: 1,
-    andamento: 1,
-    naoEntregues: 1,
+    entregues: 0,
+    andamento: 0,
+    naoEntregues: 0,
 
     emDias: 0,
     emAtraso: 0,
 
-    satisfeito: 1,
-    neutro: 1,
-    insatisfeito: 1
+    satisfeito: 0,
+    neutro: 0,
+    insatisfeito: 0
   };
   dataAll: IDashboardData = {
     lucroBruto: 0,
@@ -46,14 +44,7 @@ export class DashboardComponent implements OnInit {
 
   prazoChartOptions = {
     single: [
-      {
-        name: "Em Dias",
-        value: this.dataChart.emDias
-      },
-      {
-        name: "Em Atraso",
-        value: this.dataChart.emAtraso
-      }
+      
     ],
     showXAxis: true,
     showYAxis: true,
@@ -72,18 +63,7 @@ export class DashboardComponent implements OnInit {
 
   entregasChartOptions = {
     single: [
-      {
-        name: "Entregues",
-        value: this.dataChart.entregues
-      },
-      {
-        name: "Andamento",
-        value: this.dataChart.andamento
-      },
-      {
-        name: "Não Entregues",
-        value: this.dataChart.naoEntregues
-      }
+      
     ],
 
     gradient: true,
@@ -99,18 +79,7 @@ export class DashboardComponent implements OnInit {
 
   satisfacaoChartOption = {
     single:[
-      {
-        name: "Satisfeito",
-        value: this.dataChart.satisfeito
-      },
-      {
-        name: "Neutro",
-        value: this.dataChart.neutro
-      },
-      {
-        name: "Insatisfeito",
-        value: this.dataChart.insatisfeito
-      }
+      
     ],
   colorScheme: {
     domain: ['rgb(102, 255, 51)', 'rgb(255, 255, 0)', 'rgb(255, 51, 0)']
@@ -127,9 +96,50 @@ export class DashboardComponent implements OnInit {
     this.loadDataDash();
   };
 
+  preenche(){
+    this.prazoChartOptions.single = [{
+      name: "Em Dias",
+      value: this.dataChart.emDias
+    },
+    {
+      name: "Em Atraso",
+      value: this.dataChart.emAtraso
+    }];
+
+    this.entregasChartOptions.single = [{
+      name: "Entregues",
+      value: this.dataChart.entregues
+    },
+    {
+      name: "Andamento",
+      value: this.dataChart.andamento
+    },
+    {
+      name: "Não Entregues",
+      value: this.dataChart.naoEntregues
+    }];
+
+    this.satisfacaoChartOption.single = [{
+      name: "Satisfeito",
+      value: this.dataChart.satisfeito
+    },
+    {
+      name: "Neutro",
+      value: this.dataChart.neutro
+    },
+    {
+      name: "Insatisfeito",
+      value: this.dataChart.insatisfeito
+    }]
+  }
+
   loadDataDash() {
-    this.dash.loadData().subscribe(res => this.dataChart = res.body);
-    this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body);
+    this.dash.loadData().subscribe(res => {
+      this.dataChart = res.body
+      this.preenche();
+    });
+    this.dash.loadAllDashData().subscribe(res => this.dataAll = res.body );
+
   }
 }
 
