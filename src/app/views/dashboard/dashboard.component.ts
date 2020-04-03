@@ -13,6 +13,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 export class DashboardComponent implements OnInit {
 
   dataChart: IDashboardChart = {
+    id: '5e847dbf9f38360e74e9ee0c',
     email: "",
     entregues: 0,
     andamento: 0,

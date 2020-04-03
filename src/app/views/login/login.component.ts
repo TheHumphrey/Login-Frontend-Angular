@@ -24,7 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
 
-  public usuario: ILoginModel = { username: '', password: '' };
+  public usuario: ILoginModel = { username: '', password: '' , adm: false};
   public form: FormGroup;
 
   matcher = new MyErrorStateMatcher();

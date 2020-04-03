@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { empty } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ILoginModel } from 'src/app/models/login/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,12 @@ export class AuthLoginService {
 
   authLogin(email, password) {
     if (email && password.length >= 8) {
-      this.http.post(`${apiURL}/auth`, { username: email, password: password }, { observe: "response" })
+      this.http.post<ILoginModel>(`${apiURL}/auth`, { username: email, password: password }, { observe: "response" })
         .pipe(catchError(err => {
           return empty();
         }))
         .subscribe(res => {
+          console.log(res.body)
           this.onLogin(res.body);
           this.user = email;
           this.router.navigate(['home', email])
@@ -33,7 +35,8 @@ export class AuthLoginService {
 
   onLogin(params){
     this.online = true;
-    this.permission = params;
+    this.permission = true;
+    console.log(this.permission)
   }
 
   getOnLogin(){

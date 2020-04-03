@@ -16,7 +16,7 @@ export class DashboardService {
   }
 
   updateData(user: IDashboardChart){
-    return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user)
+    return this.http.put(`${apiURL}/dashboard/teste@gmail.com`,user).subscribe()
   }
 
   loadAllDashData(){

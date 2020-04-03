@@ -1,4 +1,5 @@
 export interface IDashboardChart{
+    id: string,
     email: string;
     entregues: number;
     naoEntregues: number;
